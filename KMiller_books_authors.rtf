@@ -1,0 +1,100 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 Menlo-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red193\green101\blue28;\red45\green150\blue30;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\b\fs24 \cf0 Create 5 books:
+\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs22 \cf0 \CocoaLigature0 book_1 = Book.objects.create(title = \cf2 "C Sharp"\cf0 , desc = \cf2 "A book about C Sharp"\cf0 )\
+book_2 = Book.objects.create(title = \cf2 "Java"\cf0 , desc= \cf2 "A book about Java"\cf0 )\
+book_3 = Book.objects.create(title = \cf2 "Python"\cf0 , desc = \cf2 "A book about Python"\cf0 )\
+book_4 = Book.objects.create(title = \cf2 "PHP"\cf0 , desc=\cf2 "A book about PHP"\cf0 ) \
+book_5 = Book.objects.create(title = \cf2 "Ruby"\cf0 , desc=\cf2 "A book about Ruby"\cf0 )   \
+\
+
+\f2\b Create 5 Authors: 
+\f1\b0 \
+author_1 = Author.objects.create(first_name=\cf2 "Jane"\cf0 , last_name=\cf2 "Austen"\cf0 )\
+author_2 = Author.objects.create(first_name=\cf2 "Emily"\cf0 , last_name=\cf2 "Dickinson\'94)\
+\cf0 author_3 = Author.objects.create(first_name=\cf2 "Fyodor"\cf0 , last_name=\cf2 "Dostoevsky"\cf0 ) \
+author_4 = Author.objects.create(first_name = \cf2 "William"\cf0 , last_name=\cf2 "Shakespeare"\cf0 ) \
+author_5 = Author.objects.create(first_name = \cf2 "Lau"\cf0 , last_name = \cf2 "Tzu"\cf0 )\
+\
+
+\f2\b List all books:
+\f1\b0 \
+Book.objects.all() \
+\
+                                                              \
+
+\f2\b Change Book 1 Title:
+\f1\b0 \
+book_1 = Book.objects.get(\cf3 id\cf0 =\cf3 1\cf0 )                                         \
+book_1.title = \cf2 "C#"\cf0  \
+book_1.save()\
+\
+
+\f2\b Change Author first_name:
+\f1\b0 \
+author_4 = Author.objects.get(\cf3 id\cf0 =\cf3 4\cf0 )                                    \
+author_4.first_name = \cf2 "Bill"\cf0                                            \
+author_4.save() \
+\
+
+\f2\b Add Author to first two books:
+\f1\b0 \
+this_book = Book.objects.get(\cf3 id\cf0 =\cf3 1\cf0 )\
+this_author = Author.objects.get(\cf3 id\cf0 =\cf3 1\cf0 )\
+this_book.authors.add(this_author)\
+\
+next_book = Book.objects.get(\cf3 id\cf0 =\cf3 2\cf0 ) \
+this_author= Author.objects.get(\cf3 id\cf0 =\cf3 1\cf0 )\
+next_book.authors.add(this_author)\
+\
+\
+Same for the other books\'85.\
+\
+
+\f2\b Get all authors of book 3:
+\f1\b0 \
+this_book = Book.objects.get(\cf3 id\cf0 =\cf3 3\cf0 )\
+this_book.authors.all()\
+\
+\
+
+\f2\b Remove first author of the 3rd book:
+\f1\b0 \
+this_book = Book.objects.get(\cf3 id\cf0 =\cf3 3\cf0 )                                     \
+this_author = Author.objects.get(\cf3 id\cf0 =\cf3 1\cf0 )                                 \
+this_book.authors.remove(this_author) \
+\
+
+\f2\b Add fifth author to the 2nd book:
+\f1\b0 \
+this_book = Book.objects.get(id=2)\
+this)author = Author.objects.get(id=5)\
+this_book.authors.add(this_author)\
+Boo\
+
+\f2\b Find books that third author is part of:
+\f1\b0 \
+this_author = Author.objects.get(id=3)\
+this_author.Books.all()\
+\
+
+\f2\b Find all authors of the 5th book:
+\f1\b0 \
+this_book = Book.objects.get(id=5)\
+this_book.authors.all()\
+\
+\
+\
+\
+\
+\
+\
+}
